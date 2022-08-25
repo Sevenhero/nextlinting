@@ -1,0 +1,42 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "standard-with-typescript",
+    "hardcore",
+    "hardcore/react",
+    "hardcore/react-testing-library",
+    "hardcore/jest",
+    "hardcore/fp",
+    "plugin:@next/next/recommended",
+    "prettier"
+  ],
+  "overrides": [
+    {
+      "files": ["server/**/*.ts"],
+      "extends": ["hardcore/node"],
+      "env": {
+        "browser": false
+      }
+    }
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "eslint-plugin-prettier"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
+    "import/group-exports": "off",
+    "@typescript-eslint/array-type": [
+      { "default": "array", "readonly": "array" }
+    ]
+  }
+}
